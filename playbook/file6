@@ -1,0 +1,7 @@
+---
+- hosts: all-hosts
+  tasks:
+    with_items:
+            - telnet
+            - ubuntu
+            - lynx
