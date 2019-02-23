@@ -41,5 +41,10 @@
 # leading 0s:
 
 ## db-[99:101]-node.example.com
+<<<<<<< HEAD
+[webserver]
+3.85.233.1
+=======
 [all-hosts]
 3.87.184.140
+>>>>>>> d8735d97ac4ee4a7a14fa90769c60846d1f4fb2c

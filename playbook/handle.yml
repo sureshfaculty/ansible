@@ -1,0 +1,10 @@
+- hosts: all-hosts
+  vars:
+     file_name: test
+  tasks:
+    - name: creating {{file_name}}
+      shell: touch {{file_name}}
+  register:
+    - debug: 
+        msg: "file has been created"  
+        when: file.stat.exists == true
