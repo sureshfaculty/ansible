@@ -1,0 +1,17 @@
+- hosts: all-hosts
+  become: yes
+  vars:
+    dbname: devops
+    dbuser: mint
+    dbpass: 12345
+  tasks:
+    - name: Ensure mysql server installed
+      yum:  name=mysql-server state=present
+    - name: Ensure mysql running
+      service: name=mysqld state=started
+    - name: Ensure mysql-python is installed 
+      yum: name=mysql-python state=present
+    - name: Create Database 
+      mysql__db: name={{dbname}} state=present
+    - name: Create user named mint
+      mysql_user: name={{dbuser}} password={{dbpass}} priv='*.*:ALL' state=present
