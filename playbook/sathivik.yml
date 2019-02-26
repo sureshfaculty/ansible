@@ -1,0 +1,8 @@
+- hosts: all-hosts
+  remote_src: yes
+  gather_facts: no
+       tasks:
+          - shell: cat /etc/motd
+            register: motd_contents
+          - shell: echo "motd contains the word hi"
+            when: motd_contents.stdout.find('hi') != -1
