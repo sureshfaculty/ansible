@@ -1,0 +1,15 @@
+- hosts: allhosts
+  vars:
+    file_name: test
+  tasks:
+    - copy: copy file
+      src: touch /tmp/{{file_name}} 
+      dest: /tmp
+      mode: 0644 
+      stat:
+        path: "/tmp/{{file_name}} 
+        register: file
+    - debug:
+        var: file
+        msg: "the file exists"
+      when: file.stat.exists == true        
